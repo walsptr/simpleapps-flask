@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 redis_client = redis.Redis(host='red', port=6379)
 redis_client.set('product', json.dumps([
-        {'id': 1, 'nama': 'Obeng, 'barcode': '0001', 'harga': 100},
+        {'id': 1, 'nama': 'Obeng', 'barcode': '0001', 'harga': 100},
         {'id': 2, 'nama': 'Gunting', 'barcode': '0002', 'harga': 150},
         {'id': 3, 'nama': 'Meja', 'barcode': '0003', 'harga': 300}
         ]))
