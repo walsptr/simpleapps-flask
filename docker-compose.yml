@@ -2,11 +2,17 @@ version: "3"
 services:
   web:
     build: .
+    container_name: web-flask
     ports:
       - "8000:5000"
     volumes:
       - .:/code
     environment:
       FLASK_ENV: development
+    depends_on:
+      - redis
   redis:
     image: "redis:alpine"
+    container_name: redis
+    ports:
+      - "6379:6379"
