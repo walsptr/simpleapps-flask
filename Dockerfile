@@ -1,7 +1,10 @@
-FROM python:3.10-slim
-RUN mkdir -p /simple-apps/templates
+FROM python:3.10-alpine
 WORKDIR /simple-apps
+ENV FLASK_APP=apps.py
+ENV FLASK_RUN_HOST=0.0.0.0
+COPY requirements.txt requirements.txt
+RUN pip install --upgrade
+RUN pip install -r requirements.txt
+EXPOSE 5000
 COPY . .
-RUN pip install --upgrade pip
-RUN pip3 install -r requirements.txt
-CMD ["python3", "main.py"]
+CMD ["flask", "run"]

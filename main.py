@@ -1,12 +1,17 @@
-from flask import Flask
-from flask import request
-from flask import render_template
+from flask import Flask, render_template
+import redis
+import json
 
-sample = Flask(__name__)
+app = Flask(__name__)
+redis_client = redis.Redis(host='red', port=6379)
+redis_client.set('product', json.dumps([
+        {'id': 1, 'nama': 'Obeng, 'barcode': '0001', 'harga': 100},
+        {'id': 2, 'nama': 'Gunting', 'barcode': '0002', 'harga': 150},
+        {'id': 3, 'nama': 'Meja', 'barcode': '0003', 'harga': 300}
+        ]))
 
-@sample.route("/")
-def main():
- return render_template("index.html")
+items = json.loads(redis_client.get('product'))
 
-if __name__ == "__main__": 
- sample.run(host="0.0.0.0", port=8080)
+@app.route('/')
+def products_page():
+    return render_template('index.html', items=items)
