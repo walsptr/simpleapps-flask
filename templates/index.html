@@ -1,5 +1,38 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Web Sederhana</title>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Web Sederhana</h1>
+    </header>
 
-{% block content %}
-    <h1>{% block title %} Welcome to FlaskBlog {% endblock %}</h1>
-{% endblock %}
+    <nav>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Tentang Kami</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+        <article>
+            <h2>Artikel 1</h2>
+            <p>Ini adalah artikel pertama di web sederhana ini. Selamat membaca!</p>
+        </article>
+
+        <article>
+            <h2>Artikel 2</h2>
+            <p>Ini adalah artikel kedua di web sederhana ini. Semoga bermanfaat!</p>
+        </article>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Web Sederhana. Hak Cipta Dilindungi.</p>
+    </footer>
+</body>
+</html>
